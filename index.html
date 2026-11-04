@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul Interaktif IPA Kelas 7: Gerak Benda - MTsN 1 Kota Malang</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0fdf4;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #10b981;
+            border-radius: 4px;
+        }
+        .tab-btn.active {
+            background-color: #059669;
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+        .formula-box {
+            background: #ecfdf5;
+            border-left: 4px solid #10b981;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body class="text-slate-800 min-h-screen flex flex-col justify-between">
+
+    <!-- HEADER / NAVBAR -->
+    <header class="bg-emerald-700 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-3">
+            <div class="flex items-center gap-3">
+                <div class="bg-white p-2 rounded-full text-emerald-700 font-bold text-xl w-10 h-10 flex items-center justify-center shadow">
+                    <i class="fa-solid fa-person-running animate-bounce"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight">MODUL INTERAKTIF IPA - GERAK BENDA DALAM TEKNOLOGI</h1>
+                    <p class="text-xs text-emerald-200">MTsN 1 Kota Malang • Pengajar: <span class="font-semibold text-yellow-300">Siti Fatimah, S.Pd</span></p>
+                </div>
+            </div>
+            
+            <!-- Navigation Tabs -->
+            <nav class="flex flex-wrap justify-center gap-1 bg-emerald-800/60 p-1.5 rounded-xl border border-emerald-600/50 text-sm">
+                <button onclick="switchTab('materi')" id="btn-materi" class="tab-btn active px-3 py-1.5 rounded-lg transition font-medium flex items-center gap-2">
+                    <i class="fa-solid fa-book-open"></i> Materi Gerak Benda
+                </button>
+                <button onclick="switchTab('simulasi')" id="btn-simulasi" class="tab-btn px-3 py-1.5 rounded-lg transition font-medium flex items-center gap-2">
+                    <i class="fa-solid fa-flask"></i> Lab Virtual
+                </button>
+                <button onclick="switchTab('lkpd')" id="btn-lkpd" class="tab-btn px-3 py-1.5 rounded-lg transition font-medium flex items-center gap-2">
+                    <i class="fa-solid fa-file-pen"></i> LKPD Digital
+                </button>
+                <button onclick="switchTab('kuis')" id="btn-kuis" class="tab-btn px-3 py-1.5 rounded-lg transition font-medium flex items-center gap-2">
+                    <i class="fa-solid fa-vial-circle-check"></i> 10 Latihan Soal
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 py-6 w-full flex-grow">
+
+        <!-- SECTION 1: MATERI INTERAKTIF GERAK BENDA -->
+        <section id="sec-materi" class="space-y-6">
+            <!-- Hero / Intro -->
+            <div class="bg-gradient-to-r from-emerald-600 to-teal-700 text-white p-6 md:p-8 rounded-2xl shadow-xl relative overflow-hidden">
+                <div class="relative z-10 max-w-2xl">
+                    <span class="bg-yellow-400 text-emerald-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Bab IV: Gerak dan Gaya dalam Teknologi</span>
+                    <h2 class="text-3xl font-extrabold mt-2 mb-3">Subbab A: Gerak Benda</h2>
+                    <p class="text-emerald-100 text-sm md:text-base leading-relaxed">
+                        Bagaimana caramu berangkat ke sekolah? Apakah berjalan kaki atau bersepeda? Mari pahami perbedaan mendasar antara <strong>Perpindahan vs Jarak Tempuh</strong>, <strong>Kelajuan vs Kecepatan</strong>, <strong>Gerak Relatif</strong>, hingga <strong>Percepatan</strong>!
+                    </p>
+                </div>
+                <i class="fa-solid fa-gauge-high absolute -right-4 -bottom-8 text-9xl text-white/10 pointer-events-none transform rotate-12"></i>
+            </div>
+
+            <!-- Kartu Materi Grid -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- 1. Posisi, Perpindahan & Jarak Tempuh -->
+                <div class="glass-card p-5 rounded-xl shadow-md border-l-4 border-emerald-500 hover:shadow-lg transition">
+                    <h3 class="text-lg font-bold text-emerald-800 flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-route text-emerald-600"></i> 1. Posisi, Perpindahan & Jarak Tempuh
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-3">
+                        Suatu benda dikatakan <strong>bergerak</strong> apabila mengalami perubahan posisi terhadap suatu titik acuan tertentu.
+                    </p>
+                    <div class="space-y-3">
+                        <div class="formula-box p-3 rounded-lg border text-xs">
+                            <span class="font-bold text-emerald-900 block mb-1">Notasi Ilmiah Perpindahan (&Delta;x):</span>
+                            <div class="font-bold text-emerald-700 text-sm">
+                                &Delta;x = x<sub>t</sub> - x<sub>0</sub>
+                            </div>
+                            <div class="text-[11px] text-slate-500 mt-1">
+                                &Delta;x = Perubahan posisi (m)<br>
+                                x<sub>0</sub> = Posisi awal (m)<br>
+                                x<sub>t</sub> = Posisi akhir (m)
+                            </div>
+                        </div>
+                        <div class="bg-teal-50 p-3 rounded-lg border border-teal-200 text-xs">
+                            <strong>Perpindahan vs Jarak Tempuh:</strong><br>
+                            • <em>Perpindahan</em>: Selisih garis lurus dari posisi awal ke posisi akhir (Besaran Vektor). Jika berangkat dari rumah ke sekolah (100 m) lalu kembali ke rumah, perpindahannya adalah <strong>0 m</strong>.<br>
+                            • <em>Jarak Tempuh (s)</em>: Total panjang seluruh lintasan yang ditempuh (Besaran Skalar). Untuk perjalanan pulang-pergi tersebut, jaraknya adalah <strong>200 m</strong>.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Gerak Relatif & Gerak Semu -->
+                <div class="glass-card p-5 rounded-xl shadow-md border-l-4 border-teal-500 hover:shadow-lg transition">
+                    <h3 class="text-lg font-bold text-teal-800 flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-eye text-teal-600"></i> 2. Gerak Relatif & Gerak Semu
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-3">
+                        Gerak bersifat <strong>relatif</strong>, artinya tergantung pada titik acuan pengamat.
+                    </p>
+                    <div class="bg-amber-50 p-3 rounded-lg border border-amber-200 text-xs space-y-2">
+                        <span class="font-bold text-amber-900 block">Gerak Semu:</span>
+                        <p class="text-slate-700">
+                            Benda yang sebenarnya diam, tetapi teramati oleh pengamat seolah-olah bergerak karena pengamat berada dalam sistem yang bergerak.
+                        </p>
+                        <div class="bg-white p-2 rounded border border-amber-300 font-semibold text-slate-700">
+                            <i class="fa-solid fa-bus text-amber-600"></i> Contoh: Saat kita naik kereta atau bus, pohon-pohon di tepi jalan tampak berlari meninggalkan kita. Padahal yang bergerak adalah kendaraan kita.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Kelajuan vs Kecepatan -->
+                <div class="glass-card p-5 rounded-xl shadow-md border-l-4 border-cyan-500 hover:shadow-lg transition">
+                    <h3 class="text-lg font-bold text-cyan-800 flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-stopwatch text-cyan-600"></i> 3. Kelajuan vs Kecepatan
+                    </h3>
+                    <div class="grid grid-cols-2 gap-3 text-xs mb-3">
+                        <div class="formula-box p-3 rounded-lg border">
+                            <span class="font-bold text-emerald-900 block mb-1">Kelajuan (v):</span>
+                            <div class="font-bold text-emerald-700 text-sm">v = s / t</div>
+                            <span class="text-[10px] text-slate-500">Besaran Skalar (tanpa memperhatikan arah)</span>
+                        </div>
+                        <div class="formula-box p-3 rounded-lg border">
+                            <span class="font-bold text-emerald-900 block mb-1">Kecepatan Rata-Rata (&lt;v&gt;):</span>
+                            <div class="font-bold text-emerald-700 text-sm">&lt;v&gt; = &Delta;x / &Delta;t</div>
+                            <span class="text-[10px] text-slate-500">Besaran Vektor (memiliki arah gerak)</span>
+                        </div>
+                    </div>
+                    <div class="bg-slate-100 p-2.5 rounded text-xs text-slate-700">
+                        <strong>Kelajuan Rata-Rata:</strong> <i>v</i><sub>rata-rata</sub> = &sum;s / &sum;t (Jumlah total jarak dibagi total waktu tempuh).
+                    </div>
+                </div>
+
+                <!-- 4. Percepatan (a) -->
+                <div class="glass-card p-5 rounded-xl shadow-md border-l-4 border-indigo-500 hover:shadow-lg transition">
+                    <h3 class="text-lg font-bold text-indigo-800 flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-chart-line text-indigo-600"></i> 4. Percepatan Gerak Benda
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-3">
+                        <strong>Percepatan (<i>a</i>)</strong> adalah besarnya pertambahan atau perubahan kecepatan tiap satuan waktu.
+                    </p>
+                    <div class="formula-box p-3 rounded-lg border text-xs mb-3">
+                        <span class="font-bold text-indigo-900 block mb-1">Notasi Ilmiah Percepatan:</span>
+                        <div class="font-bold text-indigo-700 text-sm">
+                            a = (v<sub>t</sub> - v<sub>0</sub>) / (t<sub>t</sub> - t<sub>0</sub>)
+                        </div>
+                        <div class="text-[11px] text-slate-500 mt-1">
+                            a = Percepatan (m/s²)<br>
+                            v<sub>0</sub> = Kecepatan awal (m/s), v<sub>t</sub> = Kecepatan akhir (m/s)<br>
+                            t = Selang waktu (s)
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 text-[11px]">
+                        <div class="bg-emerald-50 p-2 rounded border border-emerald-200">
+                            <strong class="text-emerald-900 block">Dipercepat (a &gt; 0)</strong>
+                            Kecepatan bertambah saat menggelinding di bidang miring.
+                        </div>
+                        <div class="bg-rose-50 p-2 rounded border border-rose-200">
+                            <strong class="text-rose-900 block">Diperlambat (a &lt; 0)</strong>
+                            Kecepatan berkurang saat kendaraan direm.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fakta Sains: Bugatti Chiron Super Sport 300+ (Halaman 121) -->
+            <div class="bg-gradient-to-r from-slate-900 to-slate-800 text-white p-5 rounded-2xl shadow-xl flex flex-col md:flex-row items-center gap-5 border border-slate-700">
+                <div class="bg-amber-500 text-slate-900 p-4 rounded-xl text-center font-black text-xl shrink-0">
+                    <i class="fa-solid fa-car-side text-4xl block mb-1"></i>
+                    BUGATTI
+                </div>
+                <div class="flex-grow space-y-1">
+                    <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Fakta Sains Benda Tercepat (Buku Siswa Hlm. 121)</span>
+                    <h4 class="text-lg font-bold text-white">Mobil Tercepat di Dunia: Bugatti Chiron Super Sport 300+</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Mobil sport ini mampu mencapai kecepatan luar biasa <strong>v = 490 km/jam</strong>.
+                    </p>
+                    <div class="bg-slate-800/80 p-2.5 rounded-lg border border-amber-400/30 font-mono text-xs text-amber-200">
+                        <strong>Konversi Notasi Ilmiah ke m/s:</strong><br>
+                        v = (490 &times; 1000 m) / 3600 s = <strong>136,11 m/s</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: LAB VIRTUAL / SIMULASI GERAK BENDA -->
+        <section id="sec-simulasi" class="hidden space-y-6">
+            <div class="bg-white p-4 rounded-xl shadow-md border border-emerald-100 flex flex-wrap gap-3 items-center justify-between">
+                <div>
+                    <h2 class="text-xl font-bold text-emerald-800"><i class="fa-solid fa-flask"></i> Laboratorium Simulasi Digital</h2>
+                    <p class="text-xs text-slate-500">Eksperimen Interaktif Gerak Benda, Jarak vs Perpindahan & Gerak Relatif / Semu</p>
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="switchSim(1)" id="btn-sim-1" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-emerald-600 text-white shadow">
+                        Lab 1: Jarak, Perpindahan, Kelajuan & Kecepatan
+                    </button>
+                    <button onclick="switchSim(2)" id="btn-sim-2" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-200 text-slate-700">
+                        Lab 2: Gerak Relatif & Gerak Semu
+                    </button>
+                </div>
+            </div>
+
+            <!-- SIMULASI 1: HUBUNGAN JARAK & PERPINDAHAN DENGAN KELAJUAN & KECEPATAN -->
+            <div id="sim-container-1" class="glass-card p-6 rounded-2xl shadow-lg border border-emerald-200">
+                <div class="flex flex-col lg:flex-row gap-6">
+                    <!-- Control Panel -->
+                    <div class="lg:w-1/3 bg-emerald-50/80 p-5 rounded-xl border border-emerald-200 space-y-4">
+                        <h3 class="font-bold text-emerald-900 border-b border-emerald-200 pb-2 text-sm uppercase">
+                            <i class="fa-solid fa-sliders"></i> Pengaturan Lintasan Gerak
+                        </h3>
+
+                        <!-- Langkah Maju (Ke Kanan) -->
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">
+                                1. Gerak Maju (Ke Kanan): <span id="val-maju" class="text-emerald-700 font-bold">100 meter</span>
+                            </label>
+                            <input type="range" id="input-maju" min="20" max="200" step="10" value="100" oninput="updateSim1Inputs()" class="w-full accent-emerald-600">
+                        </div>
+
+                        <!-- Langkah Mundur (Ke Kiri) -->
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">
+                                2. Gerak Putar Balik (Ke Kiri): <span id="val-mundur" class="text-emerald-700 font-bold">40 meter</span>
+                            </label>
+                            <input type="range" id="input-mundur" min="0" max="200" step="10" value="40" oninput="updateSim1Inputs()" class="w-full accent-emerald-600">
+                        </div>
+
+                        <!-- Waktu Tempuh -->
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">
+                                3. Total Waktu Tempuh (t): <span id="val-waktu" class="text-emerald-700 font-bold">20 sekon</span>
+                            </label>
+                            <input type="range" id="input-waktu" min="5" max="60" step="5" value="20" oninput="updateSim1Inputs()" class="w-full accent-emerald-600">
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="pt-2 flex gap-2">
+                            <button onclick="startSim1()" id="btn-start-sim1" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-lg shadow-md transition text-xs flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-play"></i> Jalankan Simulasi Gerak
+                            </button>
+                            <button onclick="resetSim1()" class="bg-slate-300 hover:bg-slate-400 text-slate-700 px-3 py-2.5 rounded-lg text-xs font-bold">
+                                <i class="fa-solid fa-rotate-left"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Canvas Visualization & Results -->
+                    <div class="lg:w-2/3 flex flex-col justify-between space-y-4">
+                        <div class="relative bg-slate-900 rounded-xl overflow-hidden shadow-inner border border-slate-700">
+                            <canvas id="canvasSim1" class="w-full h-64 block"></canvas>
+                            <div class="absolute top-3 left-3 bg-black/70 backdrop-filter blur-md px-3 py-1.5 rounded-lg text-white font-mono text-xs flex gap-4 border border-white/10">
+                                <span>Posisi (x): <strong id="pos-sim1" class="text-yellow-400">0.0</strong> m</span>
+                                <span>Waktu (t): <strong id="timer-sim1" class="text-cyan-400">0.00</strong> s</span>
+                            </div>
+                        </div>
+
+                        <!-- Live Analysis Stat Grid -->
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+                            <div class="bg-emerald-100/70 p-2.5 rounded-xl border border-emerald-300">
+                                <span class="text-[10px] text-emerald-800 uppercase font-bold block">Jarak Tempuh (s)</span>
+                                <span id="res-jarak-sim1" class="text-base font-black text-emerald-900 font-mono">140.0 m</span>
+                                <span class="text-[9px] text-slate-500 block">s = x₁ + x₂</span>
+                            </div>
+                            <div class="bg-teal-100/70 p-2.5 rounded-xl border border-teal-300">
+                                <span class="text-[10px] text-teal-800 uppercase font-bold block">Perpindahan (Δx)</span>
+                                <span id="res-perp-sim1" class="text-base font-black text-teal-900 font-mono">60.0 m</span>
+                                <span class="text-[9px] text-slate-500 block">Δx = x₁ - x₂</span>
+                            </div>
+                            <div class="bg-cyan-100/70 p-2.5 rounded-xl border border-cyan-300">
+                                <span class="text-[10px] text-cyan-800 uppercase font-bold block">Kelajuan (v_rata-rata)</span>
+                                <span id="res-kelajuan-sim1" class="text-base font-black text-cyan-900 font-mono">7.00 m/s</span>
+                                <span class="text-[9px] text-slate-500 block">v = s / t</span>
+                            </div>
+                            <div class="bg-indigo-100/70 p-2.5 rounded-xl border border-indigo-300">
+                                <span class="text-[10px] text-indigo-800 uppercase font-bold block">Kecepatan (&lt;v&gt;)</span>
+                                <span id="res-kecepatan-sim1" class="text-base font-black text-indigo-900 font-mono">3.00 m/s</span>
+                                <span class="text-[9px] text-slate-500 block">&lt;v&gt; = Δx / t</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SIMULASI 2: GERAK RELATIF & GERAK SEMU -->
+            <div id="sim-container-2" class="glass-card p-6 rounded-2xl shadow-lg border border-teal-200 hidden">
+                <div class="flex flex-col lg:flex-row gap-6">
+                    <div class="lg:w-1/3 bg-teal-50/80 p-5 rounded-xl border border-teal-200 space-y-4">
+                        <h3 class="font-bold text-teal-900 border-b border-teal-200 pb-2 text-sm uppercase">
+                            <i class="fa-solid fa-sliders"></i> Pengaturan Acuan Gerak Relatif
+                        </h3>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">
+                                Pilih Titik Acuan (Sudut Pandang):
+                            </label>
+                            <select id="input-acuan-sim2" onchange="updateSim2Acuan()" class="w-full p-2 text-xs border rounded-lg bg-white font-semibold text-teal-900 border-teal-300">
+                                <option value="bumi" selected>Acuan 1: Pengamat Diam di Tepi Jalan (Bumi)</option>
+                                <option value="bus">Acuan 2: Penumpang di Dalam Bus / Sepeda</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">
+                                Kecepatan Kendaraan (v): <span id="val-v-sim2" class="text-teal-700 font-bold">40 km/jam</span>
+                            </label>
+                            <input type="range" id="input-v-sim2" min="10" max="80" step="5" value="40" oninput="updateSim2Inputs()" class="w-full accent-teal-600">
+                        </div>
+
+                        <div class="bg-amber-50 p-3 rounded-lg border border-amber-200 text-xs">
+                            <strong class="text-amber-900 block mb-1"><i class="fa-solid fa-circle-info"></i> Penjelasan Konsep:</strong>
+                            <p id="desc-acuan-sim2" class="text-slate-700 leading-relaxed">
+                                Menurut pengamat di tepi jalan, bus dan pengendaranya bergerak maju, sedangkan pohon-pohon di tepi jalan tetap diam.
+                            </p>
+                        </div>
+
+                        <div class="pt-2 flex gap-2">
+                            <button onclick="toggleSim2()" id="btn-start-sim2" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-2.5 rounded-lg shadow-md transition text-xs flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-play"></i> Mulai Animasi Gerak
+                            </button>
+                            <button onclick="resetSim2()" class="bg-slate-300 hover:bg-slate-400 text-slate-700 px-3 py-2.5 rounded-lg text-xs font-bold">
+                                <i class="fa-solid fa-rotate-left"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="lg:w-2/3 flex flex-col justify-between space-y-4">
+                        <div class="relative bg-slate-900 rounded-xl overflow-hidden shadow-inner border border-slate-700">
+                            <canvas id="canvasSim2" class="w-full h-64 block"></canvas>
+                            <div class="absolute top-3 left-3 bg-black/70 backdrop-filter blur-md px-3 py-1.5 rounded-lg text-white font-mono text-xs border border-white/10">
+                                Sudut Pandang: <strong id="tag-acuan-sim2" class="text-yellow-400">Pengamat di Tepi Jalan</strong>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3 text-center">
+                            <div class="bg-emerald-100/70 p-3 rounded-xl border border-emerald-300">
+                                <span class="text-[10px] text-emerald-800 uppercase font-bold block">Status Gerak Pohon / Jalan</span>
+                                <span id="status-pohon-sim2" class="text-sm font-black text-emerald-900 font-mono">DIAM (Gerak Nyata)</span>
+                            </div>
+                            <div class="bg-teal-100/70 p-3 rounded-xl border border-teal-300">
+                                <span class="text-[10px] text-teal-800 uppercase font-bold block">Status Gerak Kendaraan</span>
+                                <span id="status-bus-sim2" class="text-sm font-black text-teal-900 font-mono">BERGERAK (Ke Kanan)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: LKPD DIGITAL GERAK BENDA -->
+        <section id="sec-lkpd" class="hidden space-y-6">
+            <div class="glass-card p-6 rounded-2xl shadow-xl border border-emerald-200">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b pb-4 mb-6 gap-3">
+                    <div>
+                        <span class="text-xs font-bold bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full uppercase">LKPD Lab Virtual</span>
+                        <h2 class="text-2xl font-extrabold text-emerald-900 mt-1">Lembar Kerja Peserta Didik Digital</h2>
+                        <p class="text-xs text-slate-500">Data Hasil Pengamatan Simulasi Gerak Benda (Tergabung Otomatis dengan Lab Virtual)</p>
+                    </div>
+                    <button onclick="window.print()" class="bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold px-4 py-2 rounded-lg shadow flex items-center gap-2">
+                        <i class="fa-solid fa-print"></i> Cetak / Simpan PDF
+                    </button>
+                </div>
+
+                <!-- Form Identitas -->
+                <div class="grid md:grid-cols-3 gap-4 mb-6 bg-emerald-50/50 p-4 rounded-xl border border-emerald-200 text-xs">
+                    <div>
+                        <label class="font-bold text-slate-700 block mb-1">Nama Siswa:</label>
+                        <input type="text" id="lkpd-nama" placeholder="Ketik nama lengkap..." class="w-full p-2 rounded border border-emerald-300">
+                    </div>
+                    <div>
+                        <label class="font-bold text-slate-700 block mb-1">Kelas / No. Absen:</label>
+                        <input type="text" id="lkpd-kelas" placeholder="Contoh: VII-A / 12" class="w-full p-2 rounded border border-emerald-300">
+                    </div>
+                    <div>
+                        <label class="font-bold text-slate-700 block mb-1">Sekolah:</label>
+                        <input type="text" value="MTsN 1 Kota Malang" readonly class="w-full p-2 rounded border border-slate-300 bg-slate-100 font-semibold text-slate-600">
+                    </div>
+                </div>
+
+                <!-- Tabel Data Hasil Pengamatan Simulasi Gerak (Dinamis dari Lab Virtual) -->
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="font-bold text-sm text-slate-800 flex items-center gap-2">
+                        <i class="fa-solid fa-table"></i> Tabel Hasil Pengamatan Simulasi Gerak Benda
+                    </h3>
+                    <button onclick="syncDataFromSim1()" class="bg-teal-600 hover:bg-teal-700 text-white text-xs px-3 py-1.5 rounded-lg font-semibold flex items-center gap-1 shadow">
+                        <i class="fa-solid fa-rotate"></i> Sinkronkan Data dari Lab Virtual
+                    </button>
+                </div>
+                
+                <div class="overflow-x-auto mb-6">
+                    <table class="w-full text-xs border-collapse border border-slate-300 text-center">
+                        <thead class="bg-emerald-700 text-white">
+                            <tr>
+                                <th class="border border-slate-300 p-2">Parameter Simulasi</th>
+                                <th class="border border-slate-300 p-2">Lintasan Maju (x₁)</th>
+                                <th class="border border-slate-300 p-2">Putar Balik (x₂)</th>
+                                <th class="border border-slate-300 p-2">Jarak Tempuh (s)</th>
+                                <th class="border border-slate-300 p-2">Perpindahan (&Delta;x)</th>
+                                <th class="border border-slate-300 p-2">Waktu (t)</th>
+                                <th class="border border-slate-300 p-2">Kelajuan (<i>v</i><sub>rata-rata</sub>)</th>
+                                <th class="border border-slate-300 p-2">Kecepatan (&lt;v&gt;)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lkpd-table-body" class="bg-white">
+                            <tr>
+                                <td class="border p-2 font-bold text-emerald-800">Hasil Simulasi 1</td>
+                                <td class="border p-2 font-mono" id="lkpd-x1">100 m</td>
+                                <td class="border p-2 font-mono" id="lkpd-x2">40 m</td>
+                                <td class="border p-2 font-mono font-bold text-emerald-700" id="lkpd-s">140.0 m</td>
+                                <td class="border p-2 font-mono font-bold text-teal-700" id="lkpd-deltax">60.0 m</td>
+                                <td class="border p-2 font-mono" id="lkpd-t">20 s</td>
+                                <td class="border p-2 font-mono font-bold text-cyan-700" id="lkpd-v">7.00 m/s</td>
+                                <td class="border p-2 font-mono font-bold text-indigo-700" id="lkpd-kecepatan">3.00 m/s</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pertanyaan Analisis Uji Kemampuan Halaman 123 -->
+                <div class="space-y-4">
+                    <h3 class="font-bold text-sm text-slate-800 flex items-center gap-2">
+                        <i class="fa-solid fa-pen-to-square text-emerald-600"></i> Analisis Pertanyaan Hasil Praktikum
+                    </h3>
+                    
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-2">
+                        <label class="font-bold text-slate-800 block">1. Berdasarkan data hasil simulasi di atas, mengapa nilai Jarak Tempuh (s) berbeda dengan nilai Perpindahan (&Delta;x)? Jelaskan perbedaannya!</label>
+                        <textarea id="ans-1" rows="2" class="w-full p-2 border rounded-lg" placeholder="Tuliskan analisis berdasarkan besaran skalar dan vektor..."></textarea>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-2">
+                        <label class="font-bold text-slate-800 block">2. Bagaimana hubungan antara Kelajuan Rata-rata dan Kecepatan Rata-rata terhadap waktu tempuh benda?</label>
+                        <textarea id="ans-2" rows="2" class="w-full p-2 border rounded-lg" placeholder="Tuliskan jawaban analisismu..."></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: 10 LATIHAN SOAL INTERAKTIF GERAK BENDA -->
+        <section id="sec-kuis" class="hidden space-y-6">
+            <div class="glass-card p-6 rounded-2xl shadow-xl border border-emerald-200 max-w-3xl mx-auto">
+                <!-- Quiz Header -->
+                <div class="flex justify-between items-center border-b pb-4 mb-6">
+                    <div>
+                        <h2 class="text-xl font-bold text-emerald-900">10 Soal Evaluasi: Gerak Benda</h2>
+                        <p class="text-xs text-slate-500">Uji Pemahaman Subbab Gerak Benda (Notasi Ilmiah Rapi)</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs text-slate-500 block">Skor Kamu:</span>
+                        <span id="quiz-score" class="text-2xl font-black text-emerald-600 font-mono">0 / 100</span>
+                    </div>
+                </div>
+
+                <!-- Question Card Container -->
+                <div id="quiz-box" class="space-y-6">
+                    <!-- Dynamic Question content via JS -->
+                </div>
+
+                <!-- Quiz Navigation / Controls -->
+                <div class="flex justify-between items-center mt-6 pt-4 border-t border-slate-200">
+                    <button onclick="prevQuestion()" id="btn-prev-q" class="bg-slate-200 text-slate-700 text-xs font-bold px-4 py-2 rounded-lg disabled:opacity-50">
+                        <i class="fa-solid fa-arrow-left"></i> Sebelumnya
+                    </button>
+                    <span id="q-counter" class="text-xs font-semibold text-slate-500">Soal 1 dari 10</span>
+                    <button onclick="nextQuestion()" id="btn-next-q" class="bg-emerald-600 text-white text-xs font-bold px-4 py-2 rounded-lg hover:bg-emerald-700">
+                        Berikutnya <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-4 text-center border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>&copy; 2026 Modul Interaktif IPA Kelas 7 MTsN 1 Kota Malang. Dikembangkan untuk Pembelajaran Efektif Subbab Gerak Benda.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // TAB SWITCHING SYSTEM
+        function switchTab(tabId) {
+            ['materi', 'simulasi', 'lkpd', 'kuis'].forEach(id => {
+                document.getElementById(`sec-${id}`).classList.add('hidden');
+                document.getElementById(`btn-${id}`).classList.remove('active');
+            });
+            document.getElementById(`sec-${tabId}`).classList.remove('hidden');
+            document.getElementById(`btn-${tabId}`).classList.add('active');
+
+            if(tabId === 'simulasi') {
+                initSim1();
+                initSim2();
+            }
+        }
+
+        // SIMULATION SWITCHING
+        function switchSim(simId) {
+            if(simId === 1) {
+                document.getElementById('sim-container-1').classList.remove('hidden');
+                document.getElementById('sim-container-2').classList.add('hidden');
+                document.getElementById('btn-sim-1').className = 'px-3 py-1.5 rounded-lg text-xs font-bold bg-emerald-600 text-white shadow';
+                document.getElementById('btn-sim-2').className = 'px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-200 text-slate-700';
+            } else {
+                document.getElementById('sim-container-1').classList.add('hidden');
+                document.getElementById('sim-container-2').classList.remove('hidden');
+                document.getElementById('btn-sim-2').className = 'px-3 py-1.5 rounded-lg text-xs font-bold bg-teal-600 text-white shadow';
+                document.getElementById('btn-sim-1').className = 'px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-200 text-slate-700';
+                initSim2();
+            }
+        }
+
+        /* ===================================================
+           SIMULASI 1: HUBUNGAN JARAK & PERPINDAHAN DENGAN KELAJUAN & KECEPATAN
+        =================================================== */
+        let sim1AnimId = null;
+        let sim1Running = false;
+
+        function updateSim1Inputs() {
+            const xMaju = parseFloat(document.getElementById('input-maju').value);
+            const xMundur = parseFloat(document.getElementById('input-mundur').value);
+            const tTotal = parseFloat(document.getElementById('input-waktu').value);
+
+            document.getElementById('val-maju').innerText = `${xMaju} meter`;
+            document.getElementById('val-mundur').innerText = `${xMundur} meter`;
+            document.getElementById('val-waktu').innerText = `${tTotal} sekon`;
+
+            // Calculate Metrics
+            const s = xMaju + xMundur;
+            const deltaX = xMaju - xMundur;
+            const vKelajuan = s / tTotal;
+            const vKecepatan = deltaX / tTotal;
+
+            document.getElementById('res-jarak-sim1').innerText = `${s.toFixed(1)} m`;
+            document.getElementById('res-perp-sim1').innerText = `${deltaX.toFixed(1)} m`;
+            document.getElementById('res-kelajuan-sim1').innerText = `${vKelajuan.toFixed(2)} m/s`;
+            document.getElementById('res-kecepatan-sim1').innerText = `${vKecepatan.toFixed(2)} m/s`;
+
+            // Otomatis sinkronkan data ke tabel LKPD
+            syncDataFromSim1();
+
+            if (!sim1Running) {
+                drawSim1(0, 0);
+            }
+        }
+
+        function syncDataFromSim1() {
+            const xMaju = parseFloat(document.getElementById('input-maju').value);
+            const xMundur = parseFloat(document.getElementById('input-mundur').value);
+            const tTotal = parseFloat(document.getElementById('input-waktu').value);
+
+            const s = xMaju + xMundur;
+            const deltaX = xMaju - xMundur;
+            const vKelajuan = s / tTotal;
+            const vKecepatan = deltaX / tTotal;
+
+            if (document.getElementById('lkpd-x1')) {
+                document.getElementById('lkpd-x1').innerText = `${xMaju} m`;
+                document.getElementById('lkpd-x2').innerText = `${xMundur} m`;
+                document.getElementById('lkpd-s').innerText = `${s.toFixed(1)} m`;
+                document.getElementById('lkpd-deltax').innerText = `${deltaX.toFixed(1)} m`;
+                document.getElementById('lkpd-t').innerText = `${tTotal} s`;
+                document.getElementById('lkpd-v').innerText = `${vKelajuan.toFixed(2)} m/s`;
+                document.getElementById('lkpd-kecepatan').innerText = `${vKecepatan.toFixed(2)} m/s`;
+            }
+        }
+
+        function initSim1() {
+            const canvas = document.getElementById('canvasSim1');
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = 256;
+            updateSim1Inputs();
+        }
+
+        function drawSim1(currPosX, statePhase) {
+            const canvas = document.getElementById('canvasSim1');
+            const ctx = canvas.getContext('2d');
+            const width = canvas.width;
+            const height = canvas.height;
+
+            const xMaju = parseFloat(document.getElementById('input-maju').value);
+            const xMundur = parseFloat(document.getElementById('input-mundur').value);
+            const deltaX = xMaju - xMundur;
+
+            ctx.fillStyle = '#0f172a';
+            ctx.fillRect(0, 0, width, height);
+
+            // Sumbu Koordinat / Jalan
+            const startX = 60;
+            const groundY = height - 50;
+            const scale = (width - 120) / 200; // max 200m
+
+            ctx.fillStyle = '#334155';
+            ctx.fillRect(0, groundY, width, 50);
+
+            // Tanda Garis Koordinat 0m, 50m, 100m, 150m, 200m
+            ctx.font = '10px Poppins';
+            ctx.fillStyle = '#94a3b8';
+            ctx.strokeStyle = '#475569';
+            for (let m = 0; m <= 200; m += 50) {
+                let markX = startX + m * scale;
+                ctx.beginPath();
+                ctx.moveTo(markX, groundY);
+                ctx.lineTo(markX, groundY + 10);
+                ctx.stroke();
+                ctx.fillText(`${m}m`, markX - 10, groundY + 25);
+            }
+
+            // Titik Rumah (Acuan 0m)
+            ctx.fillStyle = '#10b981';
+            ctx.fillRect(startX - 15, groundY - 50, 30, 50);
+            ctx.fillStyle = '#ffffff';
+            ctx.fillText('RUMAH (0m)', startX - 25, groundY - 60);
+
+            // Garis Lintasan Jarak Tempuh (Kuning)
+            const objX = startX + currPosX * scale;
+            ctx.strokeStyle = '#f59e0b';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            if (statePhase === 0) {
+                // Phase Maju
+                ctx.moveTo(startX, groundY - 20);
+                ctx.lineTo(objX, groundY - 20);
+            } else {
+                // Phase Mundur
+                ctx.moveTo(startX, groundY - 20);
+                ctx.lineTo(startX + xMaju * scale, groundY - 20);
+                ctx.moveTo(startX + xMaju * scale, groundY - 30);
+                ctx.lineTo(objX, groundY - 30);
+            }
+            ctx.stroke();
+
+            // Vektor Perpindahan (Panah Merah dari Rumah ke Posisi Akhir)
+            if (currPosX !== 0) {
+                ctx.strokeStyle = '#ef4444';
+                ctx.lineWidth = 4;
+                ctx.beginPath();
+                ctx.moveTo(startX, groundY - 80);
+                ctx.lineTo(objX, groundY - 80);
+                ctx.stroke();
+
+                // Arrow Head
+                ctx.fillStyle = '#ef4444';
+                ctx.beginPath();
+                if (currPosX > 0) {
+                    ctx.moveTo(objX, groundY - 80);
+                    ctx.lineTo(objX - 8, groundY - 85);
+                    ctx.lineTo(objX - 8, groundY - 75);
+                } else {
+                    ctx.moveTo(objX, groundY - 80);
+                    ctx.lineTo(objX + 8, groundY - 85);
+                    ctx.lineTo(objX + 8, groundY - 75);
+                }
+                ctx.fill();
+
+                ctx.fillStyle = '#f87171';
+                ctx.fillText(`Vektor Perpindahan Δx = ${currPosX.toFixed(1)}m`, Math.max(startX, (startX + objX)/2 - 60), groundY - 90);
+            }
+
+            // Objek Bergerak (Mobil / Orang)
+            ctx.fillStyle = '#38bdf8';
+            ctx.beginPath();
+            ctx.arc(objX, groundY - 15, 12, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = '#0284c7';
+            ctx.stroke();
+
+            document.getElementById('pos-sim1').innerText = currPosX.toFixed(1);
+        }
+
+        function startSim1() {
+            if (sim1Running) return;
+            sim1Running = true;
+            document.getElementById('btn-start-sim1').disabled = true;
+
+            const xMaju = parseFloat(document.getElementById('input-maju').value);
+            const xMundur = parseFloat(document.getElementById('input-mundur').value);
+            const tTotal = parseFloat(document.getElementById('input-waktu').value);
+
+            const totalDist = xMaju + xMundur;
+            const tMaju = (xMaju / totalDist) * tTotal;
+            const tMundur = (xMundur / totalDist) * tTotal;
+
+            let startTime = performance.now();
+
+            function animate(now) {
+                let elapsed = (now - startTime) / 1000;
+                let currPos = 0;
+                let phase = 0;
+
+                if (elapsed <= tMaju) {
+                    phase = 0;
+                    currPos = (elapsed / tMaju) * xMaju;
+                } else if (elapsed <= tTotal) {
+                    phase = 1;
+                    let elapsed2 = elapsed - tMaju;
+                    currPos = xMaju - (elapsed2 / tMundur) * xMundur;
+                } else {
+                    phase = 1;
+                    currPos = xMaju - xMundur;
+                }
+
+                document.getElementById('timer-sim1').innerText = Math.min(elapsed, tTotal).toFixed(2);
+                drawSim1(currPos, phase);
+
+                if (elapsed < tTotal) {
+                    sim1AnimId = requestAnimationFrame(animate);
+                } else {
+                    sim1Running = false;
+                    document.getElementById('btn-start-sim1').disabled = false;
+                }
+            }
+            sim1AnimId = requestAnimationFrame(animate);
+        }
+
+        function resetSim1() {
+            cancelAnimationFrame(sim1AnimId);
+            sim1Running = false;
+            document.getElementById('btn-start-sim1').disabled = false;
+            document.getElementById('timer-sim1').innerText = "0.00";
+            updateSim1Inputs();
+        }
+
+        /* ===================================================
+           SIMULASI 2: GERAK RELATIF & GERAK SEMU
+        =================================================== */
+        let sim2AnimId = null;
+        let sim2Running = false;
+        let sim2Offset = 0;
+
+        function updateSim2Inputs() {
+            const v = document.getElementById('input-v-sim2').value;
+            document.getElementById('val-v-sim2').innerText = `${v} km/jam`;
+        }
+
+        function updateSim2Acuan() {
+            const acuan = document.getElementById('input-acuan-sim2').value;
+            if (acuan === 'bumi') {
+                document.getElementById('tag-acuan-sim2').innerText = 'Pengamat di Tepi Jalan (Bumi)';
+                document.getElementById('desc-acuan-sim2').innerText = 'Menurut pengamat yang diam di tepi jalan, kendaraan melaju maju ke depan, sedangkan pohon dan rumah tetap berada di tempatnya (diam).';
+                document.getElementById('status-pohon-sim2').innerText = 'DIAM (Nyata)';
+                document.getElementById('status-bus-sim2').innerText = 'BERGERAK MAJU (Nyata)';
+            } else {
+                document.getElementById('tag-acuan-sim2').innerText = 'Pengamat di Dalam Kendaraan';
+                document.getElementById('desc-acuan-sim2').innerText = 'Menurut orang yang berada di dalam kendaraan, dirinya diam terhadap bus, tetapi pohon-pohon di luar tampak bergerak berlari ke belakang (GERAK SEMU).';
+                document.getElementById('status-pohon-sim2').innerText = 'BERGERAK MUNDUR (Gerak Semu)';
+                document.getElementById('status-bus-sim2').innerText = 'DIAM (Terhadap Bus)';
+            }
+            drawSim2();
+        }
+
+        function initSim2() {
+            const canvas = document.getElementById('canvasSim2');
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = 256;
+            updateSim2Inputs();
+            updateSim2Acuan();
+        }
+
+        function drawSim2() {
+            const canvas = document.getElementById('canvasSim2');
+            const ctx = canvas.getContext('2d');
+            const width = canvas.width;
+            const height = canvas.height;
+            const acuan = document.getElementById('input-acuan-sim2').value;
+
+            ctx.fillStyle = '#0f172a';
+            ctx.fillRect(0, 0, width, height);
+
+            const groundY = height - 50;
+
+            // Jalan Raya
+            ctx.fillStyle = '#334155';
+            ctx.fillRect(0, groundY, width, 50);
+
+            // Garis Putus-putus Jalan Raya
+            ctx.strokeStyle = '#f59e0b';
+            ctx.lineWidth = 3;
+            ctx.setLineDash([20, 15]);
+            let dashOffset = acuan === 'bumi' ? 0 : sim2Offset;
+            ctx.lineDashOffset = -dashOffset;
+            ctx.beginPath();
+            ctx.moveTo(0, groundY + 25);
+            ctx.lineTo(width, groundY + 25);
+            ctx.stroke();
+            ctx.setLineDash([]); // Reset dash
+
+            // Posisi Benda berdasarkan titik acuan
+            let busX = acuan === 'bumi' ? (60 + sim2Offset) % (width + 100) - 50 : width / 2 - 40;
+            let bgOffset = acuan === 'bumi' ? 0 : sim2Offset;
+
+            // Pohon & Bangunan di Tepi Jalan (Pohon bergerak ke belakang jika acuan bus -> GERAK SEMU)
+            for (let i = -100; i < width + 300; i += 120) {
+                let treeX = (i - bgOffset) % (width + 200);
+                if (treeX < -50) treeX += width + 200;
+
+                // Pohon
+                ctx.fillStyle = '#15803d';
+                ctx.beginPath();
+                ctx.arc(treeX, groundY - 60, 20, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.fillStyle = '#b45309';
+                ctx.fillRect(treeX - 4, groundY - 40, 8, 40);
+
+                // Label Gerak Semu jika acuan bus
+                if (acuan === 'bus' && sim2Running) {
+                    ctx.fillStyle = '#f87171';
+                    ctx.font = '9px Poppins';
+                    ctx.fillText('← Gerak Semu', treeX - 25, groundY - 70);
+                }
+            }
+
+            // Pengamat Diam di Tepi Jalan (Jika acuan bumi)
+            let observerX = acuan === 'bumi' ? 80 : (80 - bgOffset) % (width + 200);
+            if (observerX < -30) observerX += width + 200;
+
+            ctx.fillStyle = '#ec4899';
+            ctx.beginPath();
+            ctx.arc(observerX, groundY - 25, 8, 0, Math.PI * 2); // kepala orang
+            ctx.fill();
+            ctx.fillRect(observerX - 3, groundY - 17, 6, 17); // badan
+            ctx.fillStyle = '#ffffff';
+            ctx.font = '9px Poppins';
+            ctx.fillText('Orang di tepi jalan', observerX - 35, groundY - 32);
+
+            // Kendaraan (Bus)
+            ctx.fillStyle = '#06b6d4';
+            ctx.fillRect(busX, groundY - 45, 90, 40);
+            // Jendela Bus
+            ctx.fillStyle = '#e0f2fe';
+            ctx.fillRect(busX + 10, groundY - 38, 20, 15);
+            ctx.fillRect(busX + 35, groundY - 38, 20, 15);
+            ctx.fillRect(busX + 60, groundY - 38, 20, 15);
+            // Roda Bus
+            ctx.fillStyle = '#1e293b';
+            ctx.beginPath();
+            ctx.arc(busX + 20, groundY - 5, 10, 0, Math.PI * 2);
+            ctx.arc(busX + 70, groundY - 5, 10, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Penumpang di dalam bus
+            ctx.fillStyle = '#f59e0b';
+            ctx.beginPath();
+            ctx.arc(busX + 20, groundY - 30, 5, 0, Math.PI * 2);
+            ctx.fill();
+
+            if (acuan === 'bumi' && sim2Running) {
+                ctx.fillStyle = '#34d399';
+                ctx.font = '9px Poppins';
+                ctx.fillText('Gerak Nyata →', busX + 15, groundY - 52);
+            }
+        }
+
+        function toggleSim2() {
+            if (sim2Running) {
+                sim2Running = false;
+                cancelAnimationFrame(sim2AnimId);
+                document.getElementById('btn-start-sim2').innerHTML = '<i class="fa-solid fa-play"></i> Lanjutkan Animasi';
+                return;
+            }
+            sim2Running = true;
+            document.getElementById('btn-start-sim2').innerHTML = '<i class="fa-solid fa-pause"></i> Jeda Animasi';
+
+            function animate() {
+                const v = parseFloat(document.getElementById('input-v-sim2').value);
+                sim2Offset += v * 0.08;
+                drawSim2();
+
+                if (sim2Running) {
+                    sim2AnimId = requestAnimationFrame(animate);
+                }
+            }
+            sim2AnimId = requestAnimationFrame(animate);
+        }
+
+        function resetSim2() {
+            cancelAnimationFrame(sim2AnimId);
+            sim2Running = false;
+            sim2Offset = 0;
+            document.getElementById('btn-start-sim2').innerHTML = '<i class="fa-solid fa-play"></i> Mulai Animasi Gerak';
+            drawSim2();
+        }
+
+        /* ===================================================
+           10 SOAL EVALUASI INTERAKTIF GERAK BENDA
+        =================================================== */
+        const quizData = [
+            {
+                q: "1. Pengertian Gerak Benda dalam konsep IPA Fisika Kelas 7 yang paling tepat adalah...",
+                opt: [
+                    "Perubahan wujud benda dari padat menjadi cair",
+                    "Perubahan posisi benda terhadap suatu titik acuan tertentu",
+                    "Pertambahan berat benda akibat gaya tarik bumi",
+                    "Sifat kelembaman benda saat diam"
+                ],
+                ans: 1,
+                exp: "Benda dikatakan bergerak jika posisinya berubah terhadap titik acuan yang dipilih."
+            },
+            {
+                q: "2. Seorang siswa berjalan 100 meter ke kanan dari rumahnya menuju sekolah, lalu kembali berjalan 100 meter ke kiri menuju rumah. Besar perpindahan (&Delta;x) dan jarak tempuh (s) siswa tersebut berturut-turut adalah...",
+                opt: [
+                    "&Delta;x = 200 m dan s = 0 m",
+                    "&Delta;x = 0 m dan s = 200 m",
+                    "&Delta;x = 100 m dan s = 100 m",
+                    "&Delta;x = 200 m dan s = 200 m"
+                ],
+                ans: 1,
+                exp: "Perpindahan &Delta;x = x_akhir - x_awal = 0 m. Sedangkan Jarak Tempuh s = 100 m + 100 m = 200 m."
+            },
+            {
+                q: "3. Saat kamu naik bus yang melaju kencang di jalan raya, kamu melihat pohon-pohon di pinggir jalan seolah-olah bergerak berlari ke belakang. Peristiwa ini merupakan contoh dari...",
+                opt: [
+                    "Gerak Lurus Beraturan (GLB)",
+                    "Gerak Semu (Gerak Relatif)",
+                    "Percepatan Konstan",
+                    "Gerak Diperlambat"
+                ],
+                ans: 1,
+                exp: "Gerak semu terjadi ketika benda diam (pohon) teramati seolah bergerak karena pengamat berada di dalam sistem yang bergerak (bus)."
+            },
+            {
+                q: "4. Perbedaan mendasar antara Kelajuan (v) dan Kecepatan (&lt;v&gt;) dalam Sains adalah...",
+                opt: [
+                    "Kelajuan besaran vektor, sedangkan kecepatan besaran skalar",
+                    "Kelajuan memperhitungkan arah, sedangkan kecepatan tidak memperhitungkan arah",
+                    "Kelajuan adalah besaran skalar (jarak/waktu), sedangkan kecepatan adalah besaran vektor (perpindahan/waktu)",
+                    "Keduanya memiliki pengertian yang persis sama"
+                ],
+                ans: 2,
+                exp: "Kelajuan v = s/t (skalar, hanya ada nilai). Kecepatan <v> = &Delta;x/&Delta;t (vektor, ada nilai dan arah)."
+            },
+            {
+                q: "5. Sebuah sepeda motor menempuh jarak total s = 180 meter dalam selang waktu t = 30 sekon. Kelajuan rata-rata (<i>v</i><sub>rata-rata</sub>) sepeda motor tersebut adalah...",
+                opt: ["3 m/s", "6 m/s", "12 m/s", "60 m/s"],
+                ans: 1,
+                exp: "Persamaan Kelajuan Rata-Rata: <i>v</i><sub>rata-rata</sub> = s / t = 180 m / 30 s = 6 m/s."
+            },
+            {
+                q: "6. Sebuah mobil awalnya melaju dengan kecepatan awal v₀ = 10 m/s, kemudian dipercepat hingga kecepatannya menjadi v_t = 30 m/s dalam selang waktu t = 5 sekon. Besarnya percepatan (a) mobil adalah...",
+                opt: ["2 m/s²", "4 m/s²", "6 m/s²", "8 m/s²"],
+                ans: 1,
+                exp: "Notasi Percepatan: a = (v_t - v₀) / t = (30 m/s - 10 m/s) / 5 s = 20 / 5 = 4 m/s²."
+            },
+            {
+                q: "7. Berdasarkan Fakta Sains Buku Siswa Hlm. 121, mobil tercepat Bugatti Chiron Super Sport 300+ mampu mencapai kecepatan v = 490 km/jam. Jika dikonversi ke satuan m/s, nilainya setara dengan...",
+                opt: ["100,00 m/s", "136,11 m/s", "240,50 m/s", "490,00 m/s"],
+                ans: 1,
+                exp: "Konversi: v = (490 &times; 1000 m) / 3600 s = 136,11 m/s."
+            },
+            {
+                q: "8. Pada eksperimen Aktivitas 4.2 (Balap Mobil Kipas Angin), faktor yang menyebabkan mobil-mobilan berlayar besar (15 × 15 cm²) melaju lebih cepat adalah...",
+                opt: [
+                    "Gaya dorong tiupan angin pada layar semakin besar",
+                    "Diameter roda berkurang",
+                    "Gaya gesek tanah menghilang",
+                    "Massa mobil bertambah berat"
+                ],
+                ans: 0,
+                exp: "Ukuran layar yang lebih besar menangkap hembusan angin lebih banyak sehingga gaya dorong angin meningkat."
+            },
+            {
+                q: "9. Ketika sebuah mobil direm saat mendekati lampu merah gerbang sekolah, mobil tersebut mengalami gerak...",
+                opt: [
+                    "Gerak dipercepat beraturan (a > 0)",
+                    "Gerak diperlambat beraturan (a < 0)",
+                    "Gerak dengan kecepatan konstan",
+                    "Gerak semu"
+                ],
+                ans: 1,
+                exp: "Pengereman menyebabkan pengurangan kecepatan tiap detik, sehingga nilai percepatan menjadi negatif (diperlambat)."
+            },
+            {
+                q: "10. Sebuah bola menggelinding turun pada bidang miring yang licin. Penyebab bola bergerak semakin cepat di sepanjang bidang miring tersebut adalah...",
+                opt: [
+                    "Bola mengalami percepatan akibat komponen gaya berat gravitasi",
+                    "Massa bola terus berkurang",
+                    "Sudut kemiringan berkurang",
+                    "Gaya gesek statis bola semakin besar"
+                ],
+                ans: 0,
+                exp: "Komponen gaya gravitasi sepanjang bidang miring (F = m &middot; g &middot; sin&theta;) memberikan percepatan konstan pada bola."
+            }
+        ];
+
+        let currentQIndex = 0;
+        let userAnswers = Array(10).fill(null);
+
+        function renderQuestion() {
+            const q = quizData[currentQIndex];
+            const qBox = document.getElementById('quiz-box');
+            
+            document.getElementById('q-counter').innerText = `Soal ${currentQIndex + 1} dari 10`;
+            document.getElementById('btn-prev-q').disabled = currentQIndex === 0;
+            document.getElementById('btn-next-q').innerText = currentQIndex === 9 ? 'Selesai' : 'Berikutnya';
+
+            let optionsHtml = q.opt.map((optText, i) => {
+                const isSelected = userAnswers[currentQIndex] === i;
+                const isCorrect = i === q.ans;
+                let btnClass = "w-full text-left p-3 text-xs rounded-xl border border-slate-200 transition flex items-center justify-between ";
+                
+                if (userAnswers[currentQIndex] !== null) {
+                    if (isSelected && isCorrect) btnClass += "bg-emerald-100 border-emerald-500 text-emerald-900 font-bold";
+                    else if (isSelected && !isCorrect) btnClass += "bg-rose-100 border-rose-500 text-rose-900 font-bold";
+                    else if (isCorrect) btnClass += "bg-emerald-50 border-emerald-300 text-emerald-800 font-semibold";
+                    else btnClass += "bg-white text-slate-600 opacity-60";
+                } else {
+                    btnClass += "bg-white hover:bg-emerald-50 text-slate-700";
+                }
+
+                return `
+                    <button onclick="selectAnswer(${i})" ${userAnswers[currentQIndex] !== null ? 'disabled' : ''} class="${btnClass}">
+                        <span>${String.fromCharCode(65 + i)}. ${optText}</span>
+                        ${userAnswers[currentQIndex] !== null && isSelected ? (isCorrect ? '<i class="fa-solid fa-circle-check text-emerald-600"></i>' : '<i class="fa-solid fa-circle-xmark text-rose-600"></i>') : ''}
+                    </button>
+                `;
+            }).join('');
+
+            let expHtml = '';
+            if (userAnswers[currentQIndex] !== null) {
+                expHtml = `
+                    <div class="mt-4 p-3 bg-emerald-50 rounded-lg border border-emerald-200 text-xs text-emerald-900">
+                        <strong><i class="fa-solid fa-lightbulb"></i> Pembahasan:</strong> ${q.exp}
+                    </div>
+                `;
+            }
+
+            qBox.innerHTML = `
+                <div class="space-y-4">
+                    <h3 class="font-bold text-sm text-slate-800 leading-relaxed">${q.q}</h3>
+                    <div class="space-y-2">${optionsHtml}</div>
+                    ${expHtml}
+                </div>
+            `;
+
+            updateScore();
+        }
+
+        function selectAnswer(optIdx) {
+            userAnswers[currentQIndex] = optIdx;
+            renderQuestion();
+        }
+
+        function updateScore() {
+            let correctCount = 0;
+            userAnswers.forEach((ans, i) => {
+                if (ans === quizData[i].ans) correctCount++;
+            });
+            document.getElementById('quiz-score').innerText = `${correctCount * 10} / 100`;
+        }
+
+        function prevQuestion() {
+            if (currentQIndex > 0) {
+                currentQIndex--;
+                renderQuestion();
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQIndex < 9) {
+                currentQIndex++;
+                renderQuestion();
+            } else {
+                alert(`Kuis Gerak Benda Selesai! Skor Akhir Anda: ${userAnswers.filter((ans, i) => ans === quizData[i].ans).length * 10}`);
+            }
+        }
+
+        // INIT ON LOAD
+        window.onload = function() {
+            renderQuestion();
+        }
+    </script>
+</body>
+</html>
